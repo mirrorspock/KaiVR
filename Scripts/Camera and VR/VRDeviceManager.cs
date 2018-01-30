@@ -8,7 +8,7 @@ namespace VRStandardAssets.Utils
     // The class uses the singleton pattern so that only one object exists.
     public class VRDeviceManager : MonoBehaviour
     {
-        [SerializeField] private float m_RenderScale = 1.4f;
+        //[SerializeField] private float m_RenderScale = 1.4f;
 
 
         private static VRDeviceManager s_Instance;
@@ -20,8 +20,8 @@ namespace VRStandardAssets.Utils
             {
                 if (s_Instance == null)
                 {
-                    s_Instance = FindObjectOfType<VRDeviceManager> ();
-                    DontDestroyOnLoad (s_Instance.gameObject);
+                    s_Instance = FindObjectOfType<VRDeviceManager>();
+                    DontDestroyOnLoad(s_Instance.gameObject);
                 }
 
                 return s_Instance;
@@ -29,16 +29,16 @@ namespace VRStandardAssets.Utils
         }
 
 
-        private void Awake ()
+        private void Awake()
         {
             if (s_Instance == null)
             {
                 s_Instance = this;
-                DontDestroyOnLoad (this);
+                DontDestroyOnLoad(this);
             }
             else if (this != s_Instance)
             {
-                Destroy (gameObject);
+                Destroy(gameObject);
             }
         }
     }
